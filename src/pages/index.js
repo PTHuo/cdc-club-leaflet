@@ -19,7 +19,7 @@ const DEFAULT_ZOOM = 2;
  * @description This is an example of creating an effect used to zoom in and set a popup on load
  */
 
-async function mapEffect = ({ leafletElement: map }) => {
+async function mapEffect = ({ leafletElement: map } = {}) {
   if ( !map ) return;
 
   let response;
