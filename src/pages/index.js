@@ -20,6 +20,7 @@ const DEFAULT_ZOOM = 2;
  */
 
 async function mapEffect({ leafletElement: map } = {}) {
+  if ( !map ) return;
    let response;
 
    try {
@@ -30,7 +31,7 @@ async function mapEffect({ leafletElement: map } = {}) {
    }
 
    const { data = [] } = response;
-   console.log('data', data) 
+   console.log('response', response)
 }
 
 const IndexPage = () => {
