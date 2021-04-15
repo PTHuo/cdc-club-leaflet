@@ -19,7 +19,7 @@ const DEFAULT_ZOOM = 2;
  * @description This is an example of creating an effect used to zoom in and set a popup on load
  */
 
-const MapEffect = ({ leafletElement: map }) => {
+async function MapEffect = ({ leafletElement: map }) => {
   if ( !map ) return;
 
   let response;
@@ -27,10 +27,10 @@ const MapEffect = ({ leafletElement: map }) => {
   try {
       response = await axios.get('https://corona.lmao.ninja/v2/countries');
   } catch (e) {
-      console.log('E', e);
+      console.log(`Failed to fetch countries: ${e.message}`, e);
   }
-
-  console.log('response', response);
+  const { data = [] } = response;
+  console.log('data', data);
 };
 
 const IndexPage = () => {
