@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import L from "leaflet";
+import axios from "axios";
 
 import Layout from "components/Layout";
 import Container from "components/Container";
@@ -18,7 +19,18 @@ const DEFAULT_ZOOM = 2;
  * @description This is an example of creating an effect used to zoom in and set a popup on load
  */
 
-const MapEffect = ({ markerRef: map }) => {
+async function MapEffect = ({ leafletElement: map }) => {
+  if ( !map ) return;
+
+  let response;
+
+  try {
+      response = await axios.get('https://corona.lmao.ninja/v2/countries');
+  } catch (e) {
+      console.log('E', e);
+  }
+
+  console.log('response', response);
 };
 
 const IndexPage = () => {
