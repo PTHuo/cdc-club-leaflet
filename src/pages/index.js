@@ -31,7 +31,7 @@ async function mapEffect({ leafletElement: map } = {}) {
    }
 
    const { data = [] } = response;
-   console.log('response', response)
+   console.log('response', response);
 }
 
 const IndexPage = () => {
